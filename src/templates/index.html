@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlenderBot Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <button id="new-chat" class="new-chat">+ New chat</button>
+      <div class="sidebar-foot">
+        <span class="model-badge">facebook/blenderbot-400M-distill</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1>BlenderBot</h1>
+        <p class="subtitle">A ChatGPT-style interface powered by a local Hugging Face model</p>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite"></section>
+
+      <div id="typing" class="typing hidden" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <form id="chat-form" class="composer">
+        <textarea id="input" rows="1" placeholder="Send a message..." autocomplete="off"></textarea>
+        <button type="submit" id="send-btn" aria-label="Send message">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13" />
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+          </svg>
+        </button>
+      </form>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
